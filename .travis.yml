@@ -6,7 +6,7 @@ scala:
 
 script:
   - sbt ++$TRAVIS_SCALA_VERSION update compile
-  - sbt ++$TRAVIS_SCALA_VERSION "app_example1/run sample.vm"
+  - sbt ++$TRAVIS_SCALA_VERSION "app_example1/run example.vm"
   - sbt ++$TRAVIS_SCALA_VERSION app_example2/run
   - sbt ++$TRAVIS_SCALA_VERSION "logger_example/runMain LoggerExample"
   - sbt ++$TRAVIS_SCALA_VERSION "logger_example/runMain Log4jLoggerExample"

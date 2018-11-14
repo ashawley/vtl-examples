@@ -27,7 +27,7 @@ This simple example shows how to use the Velocity Template Engine
 in a standalone program.
 
 ```
-> app_example1/run sample.vm
+> app_example1/run example.vm
 ```
 
 app_example2
