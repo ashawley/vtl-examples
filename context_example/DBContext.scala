@@ -164,7 +164,7 @@ class DBContext extends AbstractContext
 
   def setup(): Unit = {
     try {
-      java.lang.Class.forName("com.mysql.jdbc.Driver").newInstance()
+      java.lang.Class.forName("com.mysql.jdbc.Driver").getDeclaredConstructor().newInstance()
       conn = DriverManager.getConnection("jdbc:mysql://localhost/test?user=root")
     } catch {
       case e: java.lang.Throwable =>
