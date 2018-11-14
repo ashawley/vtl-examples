@@ -1,0 +1,28 @@
+language: scala
+
+scala:
+  - 2.12.7
+  - 2.13.0-M5
+
+script:
+  - sbt ++$TRAVIS_SCALA_VERSION update compile
+  - sbt ++$TRAVIS_SCALA_VERSION app_example1/run sample.vm
+  - sbt ++$TRAVIS_SCALA_VERSION app_example2/run
+  - sbt ++$TRAVIS_SCALA_VERSION logger_example/runMain LoggerExample
+  - sbt ++$TRAVIS_SCALA_VERSION logger_example/runMain Log4jLoggerExample
+  # - sbt ++$TRAVIS_SCALA_VERSION context_example/run dbtest.vm
+  - sbt ++$TRAVIS_SCALA_VERSION event_example/run
+  - sbt ++$TRAVIS_SCALA_VERSION xmlapp_example/run xml.vm
+
+jdk:
+  - oraclejdk8
+  - openjdk11
+
+before_cache:
+  - find $HOME/.sbt -name "*.lock" | xargs rm
+  - find $HOME/.ivy2/cache -name "ivydata-*.properties" | xargs rm
+cache:
+  directories:
+  - $HOME/.ivy2/cache
+  - $HOME/.sbt/boot
+  - $HOME/.sbt/launchers
